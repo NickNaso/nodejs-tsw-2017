@@ -24,8 +24,12 @@ async function createServer () {
     })
 
     app.get('/error', (req, res, next) => {
-        throw new Error('Eroor on handlig the request')
-        res.status(200).json({message: 'Ok from my error api endpoint'})
+        try {
+            throw new Error('Error on handlig the request')
+            res.send('My message from error request handler')
+        } catch (err) {
+            next(err)
+        }  
     })
 
     // Create http server and attach express app on it
