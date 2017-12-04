@@ -13,25 +13,14 @@ module.exports = createServer
 function createServer () {
     const app = express()
 
-    /**
-     * Add the dafualt errorhandler for express -> errorhandler -> https://www.npmjs.com/package/errorhandler
-    */
-
-    // HERE YOUR CODE
+    app.use(errorhandler())
 
     // Set express server port
     app.set('port', process.env.PORT || 5000)
-    /**
-     * Add the following middlewares to express configurations
-     * response-time -> https://www.npmjs.com/package/response-time
-     * compression -> https://www.npmjs.com/package/compression
-     * response-powered-by -> https://www.npmjs.com/package/response-powered-by
-     * morgan with 'dev' option -> https://www.npmjs.com/package/morgan
-     * 
-     */
-
-     // HERE YOUR CODE
-
+    app.use(time())
+    app.use(compression())
+    app.use(morgan('dev'))
+    app.use(responsePoweredBy("@NickNaso"))
     
 
     // Routes
