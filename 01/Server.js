@@ -6,7 +6,7 @@ const body = require('compression')
 const time = require('response-time')
 const responsePoweredBy = require('response-powered-by')
 
-async function createServer () {
+function createServer () {
     const app = express()
 
     app.use(errorhandler())
@@ -33,9 +33,8 @@ async function createServer () {
     })
 
     // Create http server and attach express app on it
-    return http.createServer(app).listen(app.get('port'), '0.0.0.0', () => {
+    http.createServer(app).listen(app.get('port'), '0.0.0.0', () => {
         console.log("Server started at http://localhost:" + app.get('port') + "/")
     })
-
 }
 

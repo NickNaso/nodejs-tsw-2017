@@ -1,3 +1,9 @@
 'use strict'
 
-const Server = require('./Server')
+const createServer = require('./Server')
+
+function run () {
+    createServer()
+}
+
+run()
