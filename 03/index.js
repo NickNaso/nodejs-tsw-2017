@@ -2,6 +2,7 @@
 
 const VError = require('verror').VError
 const createServer = require('./Server')
+
 const Mongo = require('./lib/db')
 
 async function run () {
