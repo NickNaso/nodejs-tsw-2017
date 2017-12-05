@@ -7,32 +7,24 @@ const time = require('response-time')
 const responsePoweredBy = require('response-powered-by')
 const errorhandler = require('errorhandler')
 const morgan = require('morgan')
+const cfg = require('./config')
 
 module.exports = createServer
 
 function createServer () {
     const app = express()
 
-    /**
-     * Add the dafualt errorhandler for express -> errorhandler -> https://www.npmjs.com/package/errorhandler
-     */
-
-    // HERE YOUR CODE
+    app.use(errorhandler())
 
     // Set express server port
-    app.set('port', process.env.PORT || 5000)
-    
-    /**
-     * Add the following middlewares to express configurations
-     * response-time -> https://www.npmjs.com/package/response-time
-     * compression -> https://www.npmjs.com/package/compression
-     * response-powered-by -> https://www.npmjs.com/package/response-powered-by
-     * morgan with 'dev' option -> https://www.npmjs.com/package/morgan
-     * 
-     */
 
-     // HERE YOUR CODE
-    
+  
+    app.set('port', process.env.PORT || cfg.server.port)
+
+    app.use(time())
+    app.use(compression())
+    app.use(morgan('dev'))
+    app.use(responsePoweredBy("@NickNaso"))
 
     // Routes
     app.get('/test', (req, res, next) => {
@@ -49,7 +41,7 @@ function createServer () {
     })
 
     // Create http server and attach express app on it
-    http.createServer(app).listen(app.get('port'), '0.0.0.0', () => {
-        console.log("Server started at http://localhost:" + app.get('port') + "/")
+    http.createServer(app).listen(app.get('port'), cfg.server.host, () => {
+        console.log(`Server started at ${cfg.server.protocol}://${cfg.server.host}:${app.get('port')}/`)
     })
 }
