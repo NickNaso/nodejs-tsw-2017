@@ -12,10 +12,12 @@ module.exports = {
     },
 
     login (req, res) {
-        res.render('login')
+        res.render('login', {error: req.flash('error')[0]})
     },
 
     admin (req, res) {
+        console.log(req.isAuthenticated())
+        console.log(req.user)
         res.render('admin', 
             {
                 isAuthenticated: req.isAuthenticated(),

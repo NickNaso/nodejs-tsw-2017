@@ -13,7 +13,7 @@ module.exports = {
 
     async find () {
         try {
-            return await collection.find({}).toArray()
+            return (await collection.find({}).toArray())
                             .map(v => {return new Post(v)})
         } catch (err) {
             throw new VError({

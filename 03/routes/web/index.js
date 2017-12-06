@@ -14,7 +14,7 @@ module.exports = function (app) {
 
     web.get('/login', ctrl.login)
     
-    web.get('/admin', checkAuthAndRedirect ,ctrl.admin)
+    web.get('/admin', ctrl.admin)
     
     return web
     

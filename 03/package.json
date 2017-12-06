@@ -30,6 +30,7 @@
     "response-powered-by": "^1.0.4",
     "response-time": "^2.3.2",
     "serve-favicon": "^2.4.5",
+    "socket.io": "^2.0.4",
     "verror": "^1.10.0"
   }
 }

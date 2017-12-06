@@ -1,7 +1,7 @@
 'use strict'
 
 const http = require('http')
-const cookie = require('cookie-parser')
+//const cookie = require('cookie-parser')
 const session = require('express-session')
 const body = require('body-parser')
 const flash = require('connect-flash')
@@ -16,6 +16,14 @@ const responsePoweredBy = require('response-powered-by')
 const errorhandler = require('errorhandler')
 const morgan = require('morgan')
 const cfg = require('./config')
+const ws = require('./lib/ws') 
+
+function onStart() {
+    let port = cfg.server.port
+    let protocol = cfg.server.protocol
+    let host = cfg.server.host
+    console.log(`Server started at ${protocol}://${host}:${port}/`)
+}
 
 module.exports = createServer
 
@@ -43,7 +51,7 @@ function createServer () {
     app.use(body.json({strict: true, inflate: true}))
 
     // Set the cookie parser middleware
-    app.use(cookie("tsw-secret-cookie-key"))
+    //app.use(cookie("tsw-secret-cookie-key"))
 
     // Set the session middleware
 
@@ -51,8 +59,8 @@ function createServer () {
     let sessOpts = {
         secret: "tsw-secret-session-cookie-key",
         name: "tsw.SID",
-        resave: true,
-        saveUninitialized: false,
+        resave: false,
+        saveUninitialized: true,
         cookie: {
             "secure": false,
             "maxAge": 3600000
@@ -75,7 +83,8 @@ function createServer () {
     app.use('/api', require('./routes/api')(app))
 
     // Create http server and attach express app on it
-    http.createServer(app).listen(app.get('port'), cfg.server.host, () => {
-        console.log(`Server started at ${cfg.server.protocol}://${cfg.server.host}:${app.get('port')}/`)
-    })
+    const server = http.createServer(app).listen(app.get('port'), cfg.server.host, onStart)
+
+    ws.create(server)
+
 }

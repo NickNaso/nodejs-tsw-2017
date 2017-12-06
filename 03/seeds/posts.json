@@ -6,7 +6,7 @@
     },
     {
         "author": "Ferenc Hámori",
-        "title": "Trace by RisingStack becomes Keymetrics by October 31.",
+        "title": "Trace by RisingStack becomes Keymetrics by October 31",
         "body": "During the summer of 2015, the engineers of RisingStack started to build Trace, a monitoring tool which provides actionable insights into Node.js services & microservices architectures. More than 2 years and 6000 users later, we reached the next milestone. We’re proud to announce that we partnered up with Keymetrics, the amazing team behind PM2, the de-facto process manager of the Node ecosystem and the incredible performance monitoring & management tool on top of it. This means we'll start merging Trace with Keymetrics, and stop providing Trace as a SaaS service from October 31. With Keymetrics, you’ll be able to continue monitoring your Node.js services in an even better way. As partners, the team of RisingStack will help Keymetrics to develop new features like uptime webchecks & a service topology overview in the following months."
     },
     {

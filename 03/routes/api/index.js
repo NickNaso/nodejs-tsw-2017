@@ -22,15 +22,15 @@ module.exports = function (app) {
     }))
 
     // Route to execute logout process
-    app.get('/auth/logout', ctrl.logout)
+    api.get('/auth/logout', ctrl.logout)
 
-    app.get('/posts', ctrl.getPosts)
+    api.get('/posts', ctrl.getPosts)
 
-    app.get('/posts/:id', ctrl.getPost)
+    api.get('/posts/:id', ctrl.getPost)
 
-    app.put('/posts/:id', ctrl.updatePost)
+    api.put('/posts/:id', ctrl.updatePost)
 
-    app.post('/posts', ctrl.createPost)
+    api.post('/posts', ctrl.createPost)
 
     return api
     

@@ -2,49 +2,49 @@
 
 const VError = require('verror').VError
 const LocalStrategy = require('passport-local').Strategy
-const User = require('../../dac/User')
+const Users = require('../../dac/User').USERS
+const User = require('../../resources/User')
+
 
 module.exports = function (passport) {
 
     // Used to serialize the user for the session
     passport.serializeUser(function (user, done) {
-        return done(null, user.id)
+        return done(null, user._id)
     })
 
     // Used to deserialize the user
     passport.deserializeUser(function (id, done) {
-
-        User.findById(id)
+        Users
+        .findOne({_id: id})
         .then(user => {
-            return done(null, user.toJSON())
+            return done(null, user)
         })
         .catch(err => {
             return done(err)
         })
-
     })
 
     // Set Local Strategy for authentication
     passport.use(new LocalStrategy(
         function (username, password, done) {
-            
-            User
-            .findByUserName(username)
+            Users
+            .findOne({username: username})
             .then(user => {
-                if (user.checkPassword(password)) {
-                    return done(null, false, {message: 'Incorrect password.'})
+                if (user) {
+                    let u = new User(user)
+                    if (u.checkPassword(password)) {
+                        return done(null, user)
+                    } else {
+                        return done(null, false, {message: 'Incorrect password'})
+                    }
                 } else {
-                    return done(null, user.toJSON())
+                    return done(null, false, {message: 'Incorrect username'})
                 }
             })
             .catch(err => {
-                if (VError.hasCauseWithName('UserNotFoundError')) {
-                    return done(null, false, {message: 'Incorrect username.'})
-                } else {
-                    return done(err)
-                }
+                return done(err)
             })
-            
         }
     ))
 
