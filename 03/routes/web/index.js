@@ -2,7 +2,7 @@
 
 const express = require('express')
 const ctrl = require('./ctrl')
-const checkAuthAndRedirect = require('../../middlewares/is-auth').checkAuthAndRedirect
+//const checkAuthAndRedirect = require('../../middlewares/is-auth').checkAuthAndRedirect
 
 module.exports = function (app) {
 
@@ -12,9 +12,9 @@ module.exports = function (app) {
 
     web.get('/', ctrl.index)
 
-    web.get('/login', ctrl.login)
+    //web.get('/login', ctrl.login)
     
-    web.get('/admin', ctrl.admin)
+    //web.get('/admin', ctrl.admin)
     
     return web
     

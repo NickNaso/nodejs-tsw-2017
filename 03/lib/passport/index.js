@@ -1,3 +1,3 @@
 'use strict'
 
-exports.Localstrategy = require('./LocalStrategy')
+exports.LocalStrategy = require('./LocalStrategy')

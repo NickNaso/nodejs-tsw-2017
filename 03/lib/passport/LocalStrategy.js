@@ -1,12 +1,13 @@
 'use strict'
 
 const VError = require('verror').VError
+const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 const Users = require('../../dac/User').USERS
 const User = require('../../resources/User')
 
 
-module.exports = function (passport) {
+
 
     // Used to serialize the user for the session
     passport.serializeUser(function (user, done) {
@@ -48,4 +49,3 @@ module.exports = function (passport) {
         }
     ))
 
-}

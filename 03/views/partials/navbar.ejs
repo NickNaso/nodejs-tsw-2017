@@ -1,23 +1,7 @@
 <nav class="white" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="/" class="brand-logo">Node.js Blog</a>
-      <ul class="right hide-on-med-and-down">
-        <% if (isAuthenticated) { %>
-        <li><a href="/api/auth/logout">Logout</a></li>
-        <li><a href="/admin">Admin</a></li>
-        <% } else { %>
-        <li><a href="/login">Login</a></li>
-        <% } %>
-      </ul>
-
-      <ul id="nav-mobile" class="side-nav">
-        <% if(isAuthenticated) { %>
-        <li><a href="/api/auth/logout">Logout</a></li>
-        <li><a href="/admin">Admin</a></li>
-        <% } else { %>
-        <li><a href="/login">Login</a></li>
-        <% } %>
-      </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      <a id="logo-container" href="/" class="brand-logo"><%- name %></a>
+      
+      
     </div>
   </nav>

@@ -1,7 +1,6 @@
 
 document.addEventListener('DOMContentLoaded', function () {
-    $('.button-collapse').sideNav()
-
+    
     function BlogPost(post) {
         return  `<div class="col s12">
                     <h5>${post.title}</h5>

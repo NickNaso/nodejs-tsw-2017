@@ -5,25 +5,23 @@ module.exports = {
     index (req, res) {
         res.render('index', 
             {
-                isAuthenticated: req.isAuthenticated(),
-                user: req.user
+                name: 'Node.js Blog'
             }
         )
-    },
+    }
 
-    login (req, res) {
-        res.render('login', {error: req.flash('error')[0]})
-    },
+    /*login (req, res) {
+        res.render('login', {error: req.flash('error')})
+    }*/
+    
 
-    admin (req, res) {
-        console.log(req.isAuthenticated())
-        console.log(req.user)
+    /*admin (req, res) {
         res.render('admin', 
             {
                 isAuthenticated: req.isAuthenticated(),
                 user: req.user
             }
         )
-    }
+    }*/
     
 }

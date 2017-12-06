@@ -4,10 +4,10 @@ const Post = require('../../dac/Post')
 
 module.exports = {
     
-    logout (req, res) {
+    /*logout (req, res) {
         req.logout()
         res.redirect('/')
-    },
+    },*/
 
     async getPosts (req, res, next) {
         try {

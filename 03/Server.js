@@ -1,7 +1,7 @@
 'use strict'
 
 const http = require('http')
-//const cookie = require('cookie-parser')
+const cookie = require('cookie-parser')
 const session = require('express-session')
 const body = require('body-parser')
 const flash = require('connect-flash')
@@ -16,7 +16,6 @@ const responsePoweredBy = require('response-powered-by')
 const errorhandler = require('errorhandler')
 const morgan = require('morgan')
 const cfg = require('./config')
-const ws = require('./lib/ws') 
 
 function onStart() {
     let port = cfg.server.port
@@ -28,7 +27,10 @@ function onStart() {
 module.exports = createServer
 
 function createServer () {
+
     const app = express()
+
+    const server = http.Server(app)
 
     app.use(errorhandler())
 
@@ -56,35 +58,34 @@ function createServer () {
     // Set the session middleware
 
     // Option for session
-    let sessOpts = {
+    /*let sessOpts = {
         secret: "tsw-secret-session-cookie-key",
         name: "tsw.SID",
-        resave: false,
-        saveUninitialized: true,
+        resave: true,
+        saveUninitialized: false,
         cookie: {
             "secure": false,
             "maxAge": 3600000
         }
-    };
-    app.use(session(sessOpts))
+    }*/
+    //app.use(session(sessOpts))
 
     // Set connect flash middleware
-    app.use(flash());
+    //app.use(flash())
 
     // Initialize passport
-    app.use(passport.initialize())
-    app.use(passport.session())
+    //app.use(passport.initialize())
+    //app.use(passport.session())
 
     // Attach cutom passport configuration
-    require('./lib/passport').Localstrategy(passport)
+    //require('./lib/passport').LocalStrategy
     
     // Routes
     app.use('/', require('./routes/web')(app))
     app.use('/api', require('./routes/api')(app))
 
     // Create http server and attach express app on it
-    const server = http.createServer(app).listen(app.get('port'), cfg.server.host, onStart)
-
-    ws.create(server)
+    server.listen(app.get('port'), cfg.server.host, onStart)
+    
 
 }
