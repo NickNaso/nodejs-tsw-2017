@@ -36,7 +36,9 @@
 
 ## Workshop materials
 
-- [JavaScript examples](/slides)
+- [Slides](/slides)
+
+- [JavaScript examples](/javascript-examples)
 
 - [How to solve CORS problem](/express-cors)
 
