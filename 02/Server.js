@@ -39,7 +39,6 @@ function createServer () {
             next(err)
         }  
     })
-
     // Create http server and attach express app on it
     http.createServer(app).listen(app.get('port'), cfg.server.host, () => {
         console.log(`Server started at ${cfg.server.protocol}://${cfg.server.host}:${app.get('port')}/`)
