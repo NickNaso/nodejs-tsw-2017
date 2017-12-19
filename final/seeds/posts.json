@@ -1,0 +1,32 @@
+[
+    {
+        "author": "Péter Márton",
+        "title": "The Future of Microservices Monitoring & Instrumentation",
+        "body": "Monitoring gives us observability in our system and helps us to discover, understand, and address issues to minimize their impact on the business. It’s clear then, why you should aim for the best solutions out there; especially when you build a microservices architecture that has brought up new challenges in regards to observability. The future of microservices monitoring depends on what kind of solutions become standardized in the industry and what new features will we see in the future that will make your applications much better. In this article I theorize what are these new monitoring features and what can we expect in 2018."
+    },
+    {
+        "author": "Ferenc Hámori",
+        "title": "Trace by RisingStack becomes Keymetrics by October 31",
+        "body": "During the summer of 2015, the engineers of RisingStack started to build Trace, a monitoring tool which provides actionable insights into Node.js services & microservices architectures. More than 2 years and 6000 users later, we reached the next milestone. We’re proud to announce that we partnered up with Keymetrics, the amazing team behind PM2, the de-facto process manager of the Node ecosystem and the incredible performance monitoring & management tool on top of it. This means we'll start merging Trace with Keymetrics, and stop providing Trace as a SaaS service from October 31. With Keymetrics, you’ll be able to continue monitoring your Node.js services in an even better way. As partners, the team of RisingStack will help Keymetrics to develop new features like uptime webchecks & a service topology overview in the following months."
+    },
+    {
+        "author": "Gergely Nemeth",
+        "title": "Mastering the Node.js Core Modules - The Process Module",
+        "body": "In this article, we'll take a look at the Node.js Process module, and what hidden gems it has to offer. After you’ve read this post, you’ll be able to write production-ready applications with much more confidence. You’ll know what process states your Node.js apps will have, you’ll be able to do graceful shutdown, and you’ll handle errors much more efficiently."
+    },
+    {
+        "author": "Péter Márton",
+        "title": "Understanding & Measuring HTTP Timings with Node.js",
+        "body": "Understanding and measuring HTTP timings helps us to discover performance bottlenecks in client to server or server to server communication. This article explains timings in an HTTP request and shows how to measure them in Node.js."
+    },
+    {
+        "author": "Péter Márton",
+        "title": "Designing a Microservices Architecture for Failure",
+        "body": "A Microservices architecture makes it possible to isolate failures through well-defined service boundaries. But like in every distributed system, there is a higher chance for network, hardware or application level issues. As a consequence of service dependencies, any component can be temporarily unavailable for their consumers. To minimize the impact of partial outages we need to build fault tolerant services that can gracefully respond to certain types of outages."
+    },
+    {
+        "author": "Péter Márton",
+        "title": "Building an API Gateway using Node.js",
+        "body": "Services in a microservices architecture share some common requirements regarding authentication and transportation when they need to be accessible by external clients. API Gateways provide a shared layer to handle differences between service protocols and fulfills the requirements of specific clients like desktop browsers, mobile devices, and legacy systems."
+    }
+]

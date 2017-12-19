@@ -1,0 +1,27 @@
+{
+  "name": "nodejs-tsw-2017",
+  "version": "1.0.0",
+  "description": "Example for Introduction to Node.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "seed": "HERE COMMAND TO START YOUR SEED SCRIPT"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NickNaso/nodejs-tsw-2017.git"
+  },
+  "author": "Nicola Del Gobbo <nicoladelgobbo@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "compression": "^1.7.1",
+    "errorhandler": "^1.5.0",
+    "express": "^4.16.2",
+    "morgan": "^1.9.0",
+    "mongodb": "^2.2.33",
+    "response-powered-by": "^1.0.4",
+    "response-time": "^2.3.2",
+    "verror": "^1.10.0"
+  }
+}
