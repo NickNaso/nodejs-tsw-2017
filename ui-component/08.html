@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Example of ui component with vanilla JavaScript
+        </title>
+    </head>
+    <body>
+        <!-- ALL COMPONENT INJECT THE VIEW HERE -->
+    </body>
+    <script>
+        document.componentRegistry = {}
+        document.nextId = 0
+
+        class Component {
+            constructor() {
+                this._id = ++document.nextId
+                document.componentRegistry[this._id] = this
+            }
+        }
+
+        var blogPostData = {
+            author: 'Nicola Del Gobbo',
+            title: 'Node.js everywhere',
+            body: 'Today Node.js is a software platform thart you can find installed everywhere.'
+        }
+        class BlogPost extends Component {
+            constructor(props) {
+                super()
+                this.state = {
+                    author: props.author,
+                    title: props.title,
+                    body: props.body
+                }
+            }
+
+            setBody(newBody) {
+                this.state.body = newBody
+                console.log("State after setBody => ", this.state)
+                update()
+            }
+
+            render() {
+                return `<div class="post">
+                            <h1>${this.state.title}</h1>
+                            <h3>${this.state.author}</h3>
+                            <textarea style="width: 300px; height: 200px" onchange="document.componentRegistry[${this._id}].setBody(this.value)">${this.state.body}</textarea>
+                        </div>`    
+            }
+        }
+        let blogPost = new BlogPost(blogPostData)
+        document.querySelector('body').innerHTML = blogPost.render()
+        function update() {
+            document.querySelector('body').innerHTML = blogPost.render()
+        }
+
+    </script>
+</html>

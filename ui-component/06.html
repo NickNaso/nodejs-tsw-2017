@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Example of ui component with vanilla JavaScript
+        </title>
+    </head>
+    <body>
+        <!-- ALL COMPONENT INJECT THE VIEW HERE -->
+    </body>
+    <script>
+        function BlogPost(postData) {
+            return `<div class="post">
+                        <h1>${postData.title}</h1>
+                        <h3>By ${postData.author}</h3>
+                        <p>${postData.body}</p>
+                    </div>`
+        }
+        function BlogPostList(posts) {
+            return `<div class="blog-post-list">
+                        ${posts.map(BlogPost).join('')}
+                    </div>`
+        }
+        const allPosts = [
+            {
+                author: 'Brandon Smith',
+                title: 'A CSS Trick',
+                body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+            },
+            {
+                author: 'Chris Coyier',
+                title: 'Another CSS Trick',
+                body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+            },
+            {
+                author: 'Bob Saget',
+                title: 'A Home Video',
+                body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+            }
+        ]
+        document.querySelector('body').innerHTML = BlogPostList(allPosts)
+    </script>
+</html>

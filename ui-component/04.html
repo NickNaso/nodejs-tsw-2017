@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Example of ui component with vanilla JavaScript
+        </title>
+    </head>
+    <body>
+        <!-- ALL COMPONENT INJECT THE VIEW HERE -->
+    </body>
+    <script>
+        var blogPost = {
+            author: 'Nicola Del Gobbo',
+            title: 'Node.js everywhere',
+            body: 'Today Node.js is a software platform thart you can find installed everywhere.',
+            isSponsored: true
+        }
+        function Header () {
+            return `<div class="header">
+                        <h3>### Here the content for the header ###</h3>
+                    </div>`
+        }
+        function BlogPost (postData) {
+            let badgeElement
+            if (postData.isSponsored) {
+                badgeElement = `<img src="badge.png">`
+            } else {
+                badgeElement = ''
+            }
+            return `<div class="post">
+                        ${badgeElement}
+                        <h1>${postData.title}</h1> 
+                        <h3>${postData.author}</h3>
+                        <p>${postData.body}</p>
+                    </div>`
+        }
+        function PostPage(postData) {
+        return  `<div class="page">
+                    ${Header()} 
+                    ${BlogPost(postData)}
+                </div>`
+        }
+        document.querySelector('body').innerHTML = PostPage(blogPost);
+    </script>
+</html>

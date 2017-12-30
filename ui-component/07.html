@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Example of ui component with vanilla JavaScript
+        </title>
+    </head>
+    <body>
+        <!-- ALL COMPONENT INJECT THE VIEW HERE -->
+    </body>
+    <script>
+        var blogPostData = {
+            author: 'Nicola Del Gobbo',
+            title: 'Node.js everywhere',
+            body: 'Today Node.js is a software platform thart you can find installed everywhere.'
+        }
+        class BlogPost {
+            constructor(props) {
+                this.state = {
+                    author: props.author,
+                    title: props.title,
+                    body: props.body
+                }
+            }
+
+            render() {
+                return `<div class="post">
+                            <h1>${this.state.title}</h1>
+                            <h3>${this.state.author}</h3>
+                            <p>${this.state.body}</p>
+                        </div>`    
+            }
+        }
+        let blogPost = new BlogPost(blogPostData)
+        document.querySelector('body').innerHTML = blogPost.render()
+    </script>
+</html>

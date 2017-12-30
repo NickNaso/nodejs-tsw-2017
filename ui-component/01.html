@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Example of ui component with vanilla JavaScript
+        </title>
+    </head>
+    <body>
+        <!-- ALL COMPONENT INJECT THE VIEW HERE -->
+    </body>
+    <script>
+        var blogPost = {
+            author: 'Nicola Del Gobbo',
+            title: 'Node.js everywhere',
+            body: 'Today Node.js is a software platform thart you can find installed everywhere.'
+        }
+        function PostPage(postData) {
+        return  '<div class="page">' +
+                    '<div class="post">' + 
+                    '<h1>' + postData.title + '</h1>' + 
+                    '<h3>By ' + postData.author + '</h3>' +
+                    '<p>' + postData.body + '</p>' +
+                    '</div>' +
+                '</div>'
+        }
+        document.querySelector('body').innerHTML = PostPage(blogPost);
+    </script>
+</html>
