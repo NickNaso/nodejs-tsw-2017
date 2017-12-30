@@ -26,7 +26,7 @@
 
 ## JavaScript components
 
-- [Examples of reactive element implemented in Vanilla JS](ui-component/README.md)
+- [Examples of reactive element implemented in Vanilla JS](ui-component/readme.md)
 
 ## Native Addons
 
