@@ -24,6 +24,10 @@
 
 - [Express Wiki](https://github.com/expressjs/express/wiki)
 
+## JavaScript components
+
+- [Examples of reactive element implemented in Vanilla JS](ui-component/README.md)
+
 ## Native Addons
 
 - [C++ Addons](https://nodejs.org/dist/latest/docs/api/addons.html)
